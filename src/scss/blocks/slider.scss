@@ -1,0 +1,174 @@
+.slider {
+    width: 100%;
+    overflow: hidden;
+
+    .swiper-container {
+        width: 100%;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .swiper-slide {
+        position: relative;
+        background-position: top;
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 261px;
+        height: 450px;
+        box-shadow: 0px 3px 10px 0px $black--shadow;
+
+        &__info {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+            height: 100px;
+            left: 0;
+            bottom: 0;
+            background-color: $black--alfa-50;
+
+            &:hover {
+                height: 100%;
+
+                .swiper-slide__title {
+                    display: none;
+                }
+
+                .swiper-slide__detail {
+                    display: block;
+                }
+            }
+        }
+
+        &__title,
+        &__detail {
+            font-size: 18px;
+            line-height: 22px;
+            text-align: center;
+            font-weight: 500;
+            margin: 0 0 31px;
+            padding: 0;
+        }
+
+        &__detail {
+            display: none;
+            color: $white;
+        }
+
+        &:nth-child(1) {
+            background-image: url('../img/5.png');
+
+            @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+                background-image: url('../img/5@2x.png');
+            }
+        }
+
+        &:nth-child(2) {
+            background-image: url('../img/6.png');
+
+            @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+                background-image: url('../img/6@2x.png');
+            }
+        }
+
+        &:nth-child(3) {
+            background-image: url('../img/7.png');
+
+            @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+                background-image: url('../img/7@2x.png');
+            }
+        }
+
+        &-prev {
+            margin-right: 10px;
+        }
+
+        &-active {
+            margin: 0 10px;
+        }
+
+        &-next {
+            margin-left: 10px;
+        }
+    }
+}
+
+@media (min-width: $mobile-width--cross) {
+    .slider {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .swiper-container {
+            .swiper-wrapper {
+                justify-content: space-around;
+            }
+        }
+    }
+}
+
+@media (min-width: $tablet-width) {
+    .slider {
+        .swiper-container {
+            .swiper-wrapper {
+                justify-content: center;
+
+                .swiper-slide {
+                    width: 304px;
+
+                    &:not(:last-child) {
+                        margin-right: 20px;
+                    }
+
+                    &__title,
+                    &__detail {
+                        font-size: 20px;
+                        line-height: 24px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: $desktop-width) {
+    .slider {
+        .swiper-slide {
+            width: 413px !important;
+
+            &__title,
+            &__detail {
+                font-size: 24px !important;
+                line-height: 29px !important;
+            }
+
+            &:nth-child(1) {
+                background-image: url('../img/1.png');
+    
+                @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+                    background-image: url('../img/1@2x.png');
+                }
+            }
+    
+            &:nth-child(2) {
+                background-image: url('../img/2.png');
+    
+                @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+                    background-image: url('../img/2@2x.png');
+                }
+            }
+    
+            &:nth-child(3) {
+                background-image: url('../img/3.png');
+    
+                @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+                    background-image: url('../img/3@2x.png');
+                }
+            }
+        }
+    }
+    
+}

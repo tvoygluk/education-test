@@ -1,0 +1,57 @@
+.contacts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__city {
+        font-size: 14px;
+        line-height: 17px;
+    }
+    
+    &__phone {
+        display: none;
+    }
+}
+
+@media (min-width: $tablet-width) {
+    .contacts {
+        &__phone {
+            position: relative;
+            display: inline-block;
+            font-size: 14px;
+            line-height: 17px;
+            color: $white;
+            padding-left: 24px;
+
+            &::before {
+                content: '';
+                width: 14px;
+                height: 14px;
+                background-image: url('../img/icon-phone.svg');
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+            &:hover {
+                border-bottom: 2px solid $orange;
+                border-top: 2px solid transparent;
+            }
+        }
+
+        &__city,
+        &__phone {
+            margin-left: 30px;
+        }
+    }
+}
+
+@media (min-width: $desktop-width) {
+    .contacts {
+        &__city,
+        &__phone {
+            font-size: 16px;
+            line-height: 19px;
+        }
+    }
+}

@@ -1,0 +1,303 @@
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__open-btn {
+        background-color: initial;
+        height: 26px;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        cursor: pointer;
+        outline: none;
+        z-index: 50;
+
+        div {
+            position: relative;
+            width: 39px;
+            height: 4px;
+            background-color: $white;
+
+            &:before, &:after {
+                content: '';
+                position: absolute;
+                left: 0;
+                display: block;
+                width: 39px;
+                height: 4px;
+                background-color: $white;
+            }
+
+            &:before {
+                top: -11px
+            }
+
+            &:after {
+                top: 11px
+            }
+        }
+
+        &.nav__open-btn--active {
+            div {
+                background-color: transparent;
+
+                &:before, &:after {
+                    width: 39px;
+                    top: 0;
+                    left: 0;
+                }
+
+                &:before {
+                    transform: rotate(45deg);
+                }
+
+                &:after {
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+    }
+
+    &__wrap-group {
+        display: none;
+        padding: 0 8px;
+        padding-top: 138px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background-color: $black;
+        z-index: 25;
+
+        a {
+            color: $white;
+        }
+    }
+
+    &__group-about, 
+    &__group-tech,
+    &__sing-in-up {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__group-about,
+    &__sing-in-up {
+        a {
+            font-size: 16px;
+            line-height: 19px;
+        }
+    }
+
+    &__group-about {
+        display: none;
+        position: relative;
+        padding-bottom: 30px;
+
+        a:not(:last-child) {
+            margin-bottom: 31px;
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: $gray--darken;
+        }
+    }
+
+    &__sing-in-up {
+        display: none;
+
+        a {
+            margin-bottom: 31px;
+        }
+    }
+
+    &__to-teachers {
+        padding: 15px 35px;
+        border: 2px solid $orange;
+        border-radius: 4px;
+        text-transform: uppercase;
+        font-size: 12px;
+        line-height: 14px;
+        font-weight: 500;
+
+        &:hover,
+        &:focus {
+            background-color: $orange;
+        }
+    }
+
+    &__group-tech {
+        padding: 23px 0;
+    }
+}
+
+@media(min-width: $tablet-width) {
+    .nav {
+        position: relative;
+        display: grid;
+        grid-template: auto / 1fr 39px;
+        column-gap: 38px;
+
+        &__open-btn {
+            order: 1;
+        }
+
+        div.nav__group-about,
+        a.nav__to-teachers {
+            display: flex;
+        }
+
+        &__group-tech {
+            flex-direction: column-reverse;
+            padding: 0;
+        }
+
+        &__wrap-group {
+            display: grid;
+            grid-template: auto / 1fr 150px;
+            position: static;
+            background-color: transparent;
+            padding: 0;
+        }
+
+        &__group-about {
+            flex-direction: row;
+            padding: 0;
+            min-width: 300px;
+            justify-content: space-evenly;
+
+            a {
+                &:not(:last-child) {
+                    margin: 0;  
+                }
+
+                &:hover {
+                    border-bottom: 2px solid $orange;
+                    border-top: 2px solid transparent;
+                }
+            }
+
+            &:after {
+                content: none;
+            }
+        }
+
+        &__group-about,
+        &__sing-in-up {
+            a {
+                font-size: 14px;
+                line-height: 17px;
+            }
+        }
+
+        &__sing-in-up {
+            align-items: flex-start;
+            position: absolute;
+            bottom: -90px;
+            right: 0;
+            background-color: $white;
+            padding: 30px 40px 30px 30px;
+            border-bottom-left-radius: 10px;
+            border-top-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+
+            a {
+                color: $black;
+                margin: 0;
+
+                &:not(:last-child) {
+                    margin-bottom: 20px;
+                }
+
+                &:hover {
+                    border-bottom: 2px solid $orange;
+                    border-top: 2px solid transparent;
+                    line-height: 13px;
+                }
+            }
+        }
+
+        &__to-teachers {
+            font-size: 10px;
+            line-height: 12px;
+            padding: 15px 20px;
+        }
+    }
+}
+
+@media(min-width: $desktop-width) {
+    .nav {
+        grid-template: auto / 1fr;
+
+        &__group-about {
+            justify-content: start;
+
+            a:not(:last-child) {
+                margin-right: 40px;
+            }
+        }
+
+        &__group-about,
+        &__sing-in-up {
+            a {
+                font-size: 16px;
+                line-height: 19px;
+                color: $white;
+
+                &:hover {
+                    border-bottom: 2px solid $orange;
+                    border-top: 2px solid transparent;
+                    line-height: 19px;
+                }
+            }
+        }
+
+        &__to-teachers {
+            font-size: 12px;
+            line-height: 14px;
+            padding: 15px 34px;
+        }
+
+        &__wrap-group {
+            grid-template: auto / 344px 1fr;
+        }
+
+        &__open-btn {
+            display: none;
+        }
+
+        &__group-tech {
+            flex-direction: row-reverse;
+        }
+
+        &__sing-in-up {
+            margin-left: 40px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 0;
+            position: static;
+            background-color: transparent;
+
+            a {
+
+                &:not(:last-child) {
+                    margin-bottom: 0;
+                }
+
+                &:last-child {
+                    margin-left: 34px;
+                }
+            }
+        }
+    }
+}
